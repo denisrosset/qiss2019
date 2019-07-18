@@ -2,9 +2,12 @@
 %% Exported from Jupyter Notebook
 % Run each section by placing your cursor in it and pressing Ctrl+Enter
 
+%% Markdown Cell:
+% If the math does not display properly, use the [nbviewer.jupyter.org link](https://nbviewer.jupyter.org/github/denisrosset/qiss2019/blob/master/CHSH_nonsymmetric_Correction.ipynb)
+
 %% Code Cell[1]:
 
-run ~/Projects/replab/replab_addpaths(2,1);
+run ~/Projects/replab/replab_addpaths(2,1); % replace by your own path
 install_sdpt3;
 
 %% Markdown Cell:
@@ -16,17 +19,15 @@ install_sdpt3;
 % 
 % We build the moment matrix using the vector of monomials $\vec{v} = \left( 1, A_0, A_1, B_0, B_1 \right)$, which is
 % 
-% $$ X = \begin{pmatrix} 
-% \left<1\right> & \left<A_0\right> & \left<A_1\right> & \left<B_0\right> & \left<B_1\right> \\ 
-%   & \left<1\right> & \left<A_0 A_1\right> & \left<A_0 B_0\right> & \left<A_0 B_1\right> \\
-%   &   & \left<1\right> & \left<A_1 B_0\right> & \left<A_1 B_1\right> \\
-%   &   &   & \left<1\right> & \left<B_0 B_1\right> \\
-%   &   &   &   &  \left<1\right>
-%   \end{pmatrix} $$
+% $$
+% X = \begin{pmatrix}\left<1\right> & \left<A_0\right> & \left<A_1\right> & \left<B_0\right> & \left<B_1\right> \\  & \left<1\right> & \left<A_0 A_1\right> & \left<A_0 B_0\right> & \left<A_0 B_1\right> \\ &   & \left<1\right> & \left<A_1 B_0\right> & \left<A_1 B_1\right> \\  &   &   & \left<1\right> & \left<B_0 B_1\right> \\  &   &   &   &  \left<1\right> \end{pmatrix}
+% $$
 %   
 % The objective function is 
 % 
-% $$ I_\text{CHSH} = \left<A_0 B_0\right> + \left<A_0 B_1\right> + \left<A_1 B_0\right> - \left<A_1 B_1\right>$$.
+% $$
+% I_\text{CHSH} = \left<A_0 B_0\right> + \left<A_0 B_1\right> + \left<A_1 B_0\right> - \left<A_1 B_1\right>
+% $$
 % 
 % We optimize over all (real, wlog.) expectations values such that $X$ is a semidefinite positive matrix (which is often written $X\ge 0$).
 

@@ -4,27 +4,36 @@
 
 %% Code Cell[1]:
 
-run ~/Projects/replab/replab_addpaths(2,1);
+run ~/Projects/replab/replab_addpaths(2,1); % replace by your own path
 install_sdpt3;
 
 %% Markdown Cell:
 % # Implementing the cut inflation test
 % 
 % We are using the enumeration of variables
-% $$\vec{P}^\text{test}_\text{ABC} = \big( P(abc) \big) = \big(P(000), P(001), P(010), P(011), P(100), P(101), P(110), P(111)\big)$$, for the triangle with connections (shown here flattened, there is a single `beta` variable):
+% 
+% $\vec{P}^\text{test}_\text{ABC} = \big( P(abc) \big) = \big(P(000), P(001), P(010), P(011), P(100), P(101), P(110), P(111)\big)$,
+% 
+% for the triangle with connections (shown here flattened, there is a single `beta` variable):
 % 
 % ```
 % beta -> A <- gamma -> B <- alpha -> C <- beta (looping)
 % ```
 % 
 % For example, we test the distributions:
-% $$ \vec{P}^\text{equal} = \big( 1/2, 0, 0, 0, 0, 0, 0, 1/2 \big). $$
-% $$ \vec{P}^\text{notequal} = \big( 0, 1/6, 1/6, 1/6, 1/6, 1/6, 1/6, 0 \big). $$
+% 
+% $ \vec{P}^\text{equal} = \big( 1/2, 0, 0, 0, 0, 0, 0, 1/2 \big). $
+% 
+% $ \vec{P}^\text{notequal} = \big( 0, 1/6, 1/6, 1/6, 1/6, 1/6, 1/6, 0 \big). $
+% 
 % and a new distribution inspired by the $W$ state:
-% $$ \vec{P}^\text{W} = \big( 0, 1/3, 1/3, 0, 1/3, 0, 0, 0 \big). $$
+% 
+% $ \vec{P}^\text{W} = \big( 0, 1/3, 1/3, 0, 1/3, 0, 0, 0 \big). $
 % 
 % We will test those distributions using the cut inflation 
-% $$\vec{P}^\text{inf}_\text{A1B1C1} = \big( P(a_1 b_1 c_1) \big) = \big(P(000), P(001), P(010), P(011), P(100), P(101), P(110), P(111)\big)$$,
+% 
+% $\vec{P}^\text{inf}_\text{A1B1C1} = \big( P(a_1 b_1 c_1) \big) = \big(P(000), P(001), P(010), P(011), P(100), P(101), P(110), P(111)\big)$,
+% 
 % 
 % which is connected in this way:
 % 
